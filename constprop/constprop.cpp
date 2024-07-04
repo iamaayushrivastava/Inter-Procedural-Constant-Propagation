@@ -443,7 +443,7 @@ struct constprop : public ModulePass
 
     // Process functions using Kildall's algorithm until the FunSet is empty
 
-    // Kildall's Algoritm
+    // Kildall's Algorithm
     while(!FunSet.empty())
     {
       Function *F = *(FunSet.begin());
