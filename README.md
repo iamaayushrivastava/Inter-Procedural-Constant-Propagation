@@ -1,4 +1,4 @@
-# Inter-procedural Constant Propagation
+# Inter-Procedural Constant Propagation
 
 ## Overview
 
