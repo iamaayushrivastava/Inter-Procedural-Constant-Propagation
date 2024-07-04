@@ -14,11 +14,9 @@ The primary objective of this optimization is to eliminate redundant computation
 ├── InterProcConstProp
 │   └── constprop.cpp
 ├── test
-│   └── IR
-│       └── test_cases.ll
+│   └── test_cases.ll
 └── output
-    └── IR
-        └── transformed_test_cases.ll
+    └── transformed_test_cases.ll
 ```
 
 - **test**: It contains the input IR (Intermediate Representation) code files for public test cases.
