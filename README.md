@@ -8,6 +8,23 @@ Constant propagation is an optimization technique used in compilers to simplify 
 
 The primary objective of this optimization is to eliminate redundant computations by propagating constant values through the code, leading to optimized and efficient executable code. The provided example demonstrates the transformation of code by eliminating redundant computations and substituting constants.
 
+## Directory Structure
+
+```
+├── InterProcConstProp
+│   └── constprop.cpp
+├── test
+│   └── IR
+│       └── test_cases.ll
+└── output
+    └── IR
+        └── transformed_test_cases.ll
+```
+
+- **test**: It contains the input IR (Intermediate Representation) code files for public test cases.
+- **output**: It contains the transformed IR code files after running the optimization pass.
+- **constprop.cpp**: The main implementation file for the constant propagation pass.
+
 ## Features
 
 - **Inter-procedural Analysis:** Analyzes across function boundaries to propagate constants.
@@ -20,14 +37,16 @@ The primary objective of this optimization is to eliminate redundant computation
 ### Original Code
 
 ```cpp
-void main() {
+void main()
+{
     int l = 40;
     fun(10, 100, 1000);
     bar(1000, 400, 300);
     foo(100, 400, 1000, l);
 }
 
-void fun(int i, int j, int k) {
+void fun(int i, int j, int k)
+{
     bar(2000, i, 1000);
     int o = i * 2;
     int q = 2;
@@ -35,12 +54,14 @@ void fun(int i, int j, int k) {
     foo(100, a, k, 800);
 }
 
-void foo(int i, int j, int k, int x) {
+void foo(int i, int j, int k, int x)
+{
     x = i + j + k;
     printf("%d", x);
 }
 
-void bar(int i, int j, int k) {
+void bar(int i, int j, int k)
+{
     j = (k * i) / 2;
     printf("%d", j);
 }
@@ -49,22 +70,26 @@ void bar(int i, int j, int k) {
 ### Optimized Code
 
 ```cpp
-void main() {
+void main()
+{
     fun(10, 100, 1000);
     bar(1000, 400, 300);
     foo(100, 400, 1000, 40);
 }
 
-void fun(int i, int j, int k) {
+void fun(int i, int j, int k)
+{
     bar(2000, 10, 1000);
     foo(100, 400, 1000, 800);
 }
 
-void foo(int i, int j, int k, int x) {
+void foo(int i, int j, int k, int x)
+{
     printf("%d", 1500);
 }
 
-void bar(int i, int j, int k) {
+void bar(int i, int j, int k)
+{
     j = (k * i) / 2;
     printf("%d", j);
 }
@@ -86,6 +111,8 @@ void bar(int i, int j, int k) {
 ### Prerequisites
 
 - LLVM development environment setup. For more details, visit this [link](https://www.llvm.org/docs/GettingStarted.html).
+- C++ compiler that supports C++11 or later versions.
+- Basic understanding of LLVM IR and compiler optimization techniques
 
 ### Building the Pass
 
