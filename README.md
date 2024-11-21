@@ -112,7 +112,7 @@ void bar(int i, int j, int k)
 - C++ compiler that supports C++11 or later versions.
 - Basic understanding of LLVM IR and compiler optimization techniques
 
-### Building the Pass
+### Building the pass
 
 1. Clone the repository.
 2. Navigate to the directory and build the pass using CMake.
