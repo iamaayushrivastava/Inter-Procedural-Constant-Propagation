@@ -130,4 +130,4 @@ Contributions are welcome! Please fork the repository, create a new branch, and 
 
 ## Acknowledgments
 
-Special thanks to the LLVM community for their documentation and support.
+Special thanks to the [LLVM](https://llvm.org/) community for their documentation and support.
